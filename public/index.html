@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Random Video Picker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YouTube Random Video Picker</h1>
+            <p class="subtitle">Pick a random video from your YouTube saved videos</p>
+        </header>
+
+        <div id="auth-section" class="section">
+            <div id="login-prompt">
+                <p>Connect your YouTube account to get started</p>
+                <button id="login-btn" class="btn btn-primary">Connect to YouTube</button>
+            </div>
+            <div id="logged-in" style="display: none;">
+                <p>Connected to YouTube</p>
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+
+        <div id="main-section" style="display: none;">
+            <div class="section">
+                <h2>Select Video Source</h2>
+                <div class="source-selector">
+                    <button class="btn source-btn active" data-source="liked">Liked Videos</button>
+                    <button class="btn source-btn" data-source="watch-later">Watch Later</button>
+                    <button class="btn source-btn" data-source="playlist">Custom Playlist</button>
+                </div>
+
+                <div id="playlist-selector" style="display: none;" class="playlist-select-container">
+                    <label for="playlist-select">Choose a playlist:</label>
+                    <select id="playlist-select" class="playlist-select">
+                        <option value="">Loading playlists...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <div id="video-count" class="video-count"></div>
+                <button id="pick-random-btn" class="btn btn-large btn-primary" disabled>
+                    Pick Random Video
+                </button>
+            </div>
+
+            <div id="result-section" class="section" style="display: none;">
+                <h2>Your Random Video</h2>
+                <div id="video-result" class="video-card">
+                    <!-- Video details will be inserted here -->
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading videos...</p>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
